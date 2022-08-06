@@ -11,6 +11,7 @@ public class CubeController : MonoBehaviour
     // 消滅位置
     private float deadLine = -10;
 
+
     // Use this for initialization
     void Start()
     {
@@ -28,5 +29,18 @@ public class CubeController : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+    
+
+    // ぶつかった時に音を鳴らす（着地音）
+    void OnCollisionEnter2D(Collision2D other)
+    {         
+         if (other.gameObject.tag == "UnityChanTag")
+         {
+                //Unityちゃんが接触しても無音にしたいからここは未記載にする
+         } else
+         {
+                GetComponent<AudioSource>().Play();        //オーディオクリップの音を出力するコード
+         }
     }
 }
